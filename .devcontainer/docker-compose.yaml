@@ -1,0 +1,26 @@
+---
+services:
+  devcontainer:
+    image: mcr.microsoft.com/vscode/devcontainers/python:3.10
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    working_dir: /workspace
+    networks:
+      - devnetwork
+
+  # mysql:
+  #   image: mysql:8.0
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: ecentria_explainer
+  #     MYSQL_USER: dev
+  #     MYSQL_PASSWORD: dev
+  #   ports:
+  #     - "3306:3306"
+  #   networks:
+  #     - devnetwork
+
+networks:
+  devnetwork:

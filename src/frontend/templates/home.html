@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block header %}
+<h1>Flask Test</h1>
+{% endblock %}
+
+{% block content %}
+<p>This is a simple page with some links from Flask Test.</p>
+<ul>
+    <li><a href="{{ url_for('frontend.home_')}}">Home endpoint</a></li>
+    <li><a href="{{ url_for('frontend.config')}}">Configuration endpoint</a></li>
+</ul>
+
+<div class="card">
+    {% if cfg %}
+    <div class="card-content">
+        <div class="content">
+            <p><strong>Configuration:</strong></p>
+            <pre>{{ cfg.host() }}:{{ cfg.port() }}</pre>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
